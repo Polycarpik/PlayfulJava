@@ -1,5 +1,3 @@
-import com.sun.org.apache.xpath.internal.SourceTree;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -15,11 +13,6 @@ public class Game {
     private int min;  //We mean interval including min value.
     private int max;  //Same here.
     boolean gameExit = false;
-
-    public Game(int max, int min) {
-        this.max = max;
-        this.min = min;
-    }
 
     public Game() {
         this.min = 0;
@@ -192,6 +185,7 @@ public class Game {
     }
 
     private void setInterval() {
+        siri.informMinMax();
         while (true) {
             int min = getAnswer();
             int max = getAnswer();
@@ -243,7 +237,6 @@ public class Game {
         }
         ArrayList userGuesses = new ArrayList();
         int numberToGuess = rand(min, max);
-        System.out.println(numberToGuess + "!!!!!!"); // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         siri.confirmGeneration();
         siri.offerGuessing();
         int answer;
@@ -286,7 +279,6 @@ public class Game {
             }
         }
         siri.sayGoodye();
-        return;
     }
 
 
